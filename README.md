@@ -10,15 +10,17 @@ On top of Cordova, it is built with [AngularJS][] and the [Ionic][] framework.
 
 ##Installation
 
-First, you need to get Cordova and Ionic, with npm : `npm install -g cordova ionic` or download it from the website. 
+First, you need to get Cordova and Ionic, with npm : `npm install -g cordova ionic` or download it from the website.
 
-Create a new project with :
+Clone Kimote with `git clone https://github.com/eftov/Kimote.git`.
 
-	ionic start Kimote blank
+###Auto install : run ./install.sh
+###Manual install :
 	cd Kimote
-	rm -r www
-
-Get Kimote with `git clone https://github.com/eftov/Kimote.git` and move the www and resources folders to the app folder.
+	ionic start Kimote blank
+	rm -r Kimote/www
+	mv Kimote/* .
+	rm -r Kimote
 
 Add the platforms you need, for example iOS and Android :
 
