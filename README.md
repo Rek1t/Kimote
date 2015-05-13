@@ -1,5 +1,7 @@
 #Kimote [![Build Status](https://travis-ci.org/eftov/Kimote.svg?branch=master)](https://travis-ci.org/eftov/Kimote)
 
+**Now featured in the Kodi wiki :** http://kodi.wiki/view/Kimote
+
 Kimote is a multi-platform remote application for [Kodi][], developed by 8 telecommunications students from ENSEIRB-MATMECA, a French Engineering School.
 
 It is available for all platforms supported by the [Apache Cordova][] framework but actually only tested on iOS and Android.
