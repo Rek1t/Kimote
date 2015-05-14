@@ -4,6 +4,8 @@
 
 ### Release for Android : https://github.com/eftov/Kimote/releases
 
+---
+
 Kimote is a multi-platform remote application for [Kodi][], developed by 8 telecommunications students from ENSEIRB-MATMECA, a French Engineering School.
 
 It is available for all platforms supported by the [Apache Cordova][] framework but actually only tested on iOS and Android.
