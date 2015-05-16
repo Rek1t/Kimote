@@ -1,4 +1,4 @@
-#Kimote [![Build Status](https://travis-ci.org/eftov/Kimote.svg?branch=master)](https://travis-ci.org/eftov/Kimote)
+#Kimote [![Build Status](https://travis-ci.org/eftov/Kimote.svg?branch=master)](https://travis-ci.org/eftov/Kimote) ![Platforms](https://img.shields.io/badge/platform-ios%20%7C%20android-lightgrey.svg) ![License](https://img.shields.io/badge/license-LGPL%203-blue.svg)
 
 **Now featured in the Kodi wiki :** http://kodi.wiki/view/Kimote **and in the Ionic Showcase (Newest):** http://showcase.ionicframework.com/
 
@@ -62,7 +62,7 @@ If you want Kodi on your RaspberryPi, [OpenELEC][] is the way to go. Clone it fr
 
 Or you can just download our compiled version (11 April 2015) available here : https://www.dropbox.com/s/2n7k1jonscizfl6/OpenELEC-RPi.arm-devel-20150411091720-r20584-g254b69d.img?dl=0
 
-##Licensing
+##Licensing 
 
 Kimote is licensed under the GNU LGPL, Version 3.0. See LICENSE for full license text.
 
