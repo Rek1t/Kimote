@@ -1,4 +1,19 @@
-app.controller('SideMenuCtrl', function($scope, $cookieStore, $ionicModal, $ionicSideMenuDelegate, $ionicPopup, Logger, Sounder, $ionicLoading, Requester) {
+app.controller('SideMenuCtrl', function($scope, $http, $cookieStore, $ionicModal, $ionicSideMenuDelegate, $ionicPopup, Logger, Sounder, $ionicLoading, Requester) {
+
+	$scope.getDeviceName = function(username, password, ip, port) {
+		test_url = 'http://' + username + ':' + password + '@' + ip + ':' + port;
+		method = "Application.GetProperties";
+		params = '{"properties":["name"]}';
+		
+		param_url = '/jsonrpc?request={"jsonrpc":"2.0","method":"' + method + '", "params":' + params + ', "id" : 1}';
+		complete_url = test_url + param_url;
+
+		$http.jsonp(complete_url, {params: {callback: 'JSON_CALLBACK', format: 'json'}})
+			.success(function(data, status, headers, config) {
+				$scope.icon = true;
+				$scope.device = data.result.name + " (" + ip + ":" + port + ")";
+			});
+	};
 
 	/*************** sound button ******************/
 

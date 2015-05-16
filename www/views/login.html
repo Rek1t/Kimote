@@ -30,7 +30,7 @@
 				</label>
 
 				<div class="padding">
-					<button type="submit" class="button button-block button-positive connexion" ng-click="connected=true" ng-hide="connected">
+					<button type="submit" class="button button-block button-positive connexion" ng-click="connected=true; getDeviceName(loginData.username, loginData.password, loginData.ip, loginData.port)" ng-hide="connected">
 						<i class="icon ion-checkmark icon-connexion"></i>Connect
 					</button>
 

@@ -40,16 +40,19 @@
 				</ion-header-bar>
 				<ion-content has-header="true">
 					<ion-list>
-						<ion-item nav-clear menu-close ng-click="openAuto();scanAuto();loadingScanAuto()">
+						<ion-item nav-clear="" menu-close="" ng-click="openAuto();scanAuto();loadingScanAuto()">
 							<i class="icon ion-wifi icon-connexion-side"></i>Discover Media Centers
 						</ion-item>
-						<ion-item nav-clear menu-close ng-click="openLogin()">
+						<ion-item nav-clear="" menu-close="" ng-click="openLogin()">
 							<i class="icon ion-wifi icon-connexion-side"></i>Connect to Kodi
 						</ion-item>
-						<ion-item nav-clear menu-close ng-click="openAbout()">
+						<ion-item nav-clear="" menu-close="" ng-click="openAbout()">
 							<i class="icon ion-information-circled icon-about-side"></i>About
 						</ion-item>
 					</ion-list>
+					<div class="padding device-name">
+						<i class="icon" ng-class="{'ion-radio-waves': icon}"></i>&nbsp;&nbsp; {{device}}
+					</div>
 				</ion-content>
 			</ion-side-menu>
 		</ion-side-menus>
