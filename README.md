@@ -3,6 +3,7 @@
 **Now featured in the Kodi wiki :** http://kodi.wiki/view/Kimote **and in the Ionic Showcase (Newest):** http://showcase.ionicframework.com/
 
 ### Release for Android : https://github.com/eftov/Kimote/releases
+### For both iOS and Android, Kimote is available to test on the Ionic View app with App ID 0E5A555F
 
 ---
 
