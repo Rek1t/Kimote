@@ -1,0 +1,11 @@
+{
+	"name": "Kimote",
+	"app_id": "0e5a555f",
+	"browsers": [
+		{
+			"platform": "android",
+			"browser": "crosswalk",
+			"version": "12.41.296.5"
+		}
+	]
+}

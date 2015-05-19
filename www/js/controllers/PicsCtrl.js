@@ -1,4 +1,4 @@
-app.controller('PicsCtrl', function($scope, $http, Requester) {
+app.controller('PicsCtrl', ['$scope','$http','Requester', function($scope, $http, Requester) {
 
 	$scope.request = function (input) {
 		switch (input) {
@@ -17,4 +17,4 @@ app.controller('PicsCtrl', function($scope, $http, Requester) {
 				break;
 		}
 	};
-});
+}]);

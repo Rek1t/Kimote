@@ -1,6 +1,21 @@
-app.controller('SideMenuCtrl', function($scope, $cookieStore, $ionicModal, $ionicSideMenuDelegate, $ionicPopup, Logger, Sounder) {
+app.controller('SideMenuCtrl', ['$scope','$http','$cookieStore','$ionicModal','$ionicSideMenuDelegate','$ionicPopup','Logger','Sounder','$ionicLoading','Requester', function($scope, $http, $cookieStore, $ionicModal, $ionicSideMenuDelegate, $ionicPopup, Logger, Sounder, $ionicLoading, Requester) {
 
-	/*************** bouton son ******************/
+	$scope.getDeviceName = function(username, password, ip, port) {
+		test_url = 'http://' + username + ':' + password + '@' + ip + ':' + port;
+		method = "Application.GetProperties";
+		params = '{"properties":["name"]}';
+
+		param_url = '/jsonrpc?request={"jsonrpc":"2.0","method":"' + method + '", "params":' + params + ', "id" : 1}';
+		complete_url = test_url + param_url;
+
+		$http.jsonp(complete_url, {params: {callback: 'JSON_CALLBACK', format: 'json'}})
+			.success(function(data, status, headers, config) {
+				$scope.icon = true;
+				$scope.device = data.result.name + " (" + ip + ":" + port + ")";
+			});
+	};
+
+	/*************** sound button ******************/
 
 	$scope.soundbar = {};
 	$scope.sound = Sounder.getVolume();
@@ -13,7 +28,7 @@ app.controller('SideMenuCtrl', function($scope, $cookieStore, $ionicModal, $ioni
 	$scope.showAlert = function() {
 		var alertPopup = $ionicPopup.alert({
 			title: 'Volume',
-			template: '<input type="range" name="volume" ng-model="soundbar.sound" min="0" max="100" ng-change="setVol()">',
+			template: '<div class="range"><i class="icon ion-volume-low"></i><input type="range" name="volume" ng-model="soundbar.sound" min="0" max="100" ng-change="setVol()"><i class="icon ion-volume-high"></i></div>',
 			scope: $scope
 		});
 
@@ -24,7 +39,7 @@ app.controller('SideMenuCtrl', function($scope, $cookieStore, $ionicModal, $ioni
 
 	/*********************************************/
 
-	/* Vue modal pour about.html */
+	/* modal view for about.html */
 	$ionicModal.fromTemplateUrl('views/about.html', {
 		scope: $scope
 	}).then(function(modal) {
@@ -39,48 +54,44 @@ app.controller('SideMenuCtrl', function($scope, $cookieStore, $ionicModal, $ioni
 		$scope.modalAbout.hide();
 	};
 
-	/* Vue modal pour la connexion Manuelle*/
+	/* modal view for login.html */
 	$ionicModal.fromTemplateUrl('views/login.html', {
 		scope: $scope
 	}).then(function(modal) {
 		$scope.modal = modal;
 	});
 
-	/* Ouvre le modal */
+	/* Open modal view */
 	$scope.openLogin = function() {
 		$scope.modal.show();
 	};
 
-	/* Ferme le modal */
+	/* Close modal view */
 	$scope.closeLogin = function() {
 		$scope.modal.hide();
 	};
 
+	/* Open menu */
+	$scope.showMenu = function () {
+		$ionicSideMenuDelegate.toggleLeft();
+	};
 
-		/* Vue modal pour la connexion*/
+	/* modal view for autologin.html */
 	$ionicModal.fromTemplateUrl('views/autologin.html', {
 		scope: $scope
 	}).then(function(modal) {
 		$scope.modalAuto = modal;
 	});
 
-	/* Ouvre le modal */
 	$scope.openAuto = function() {
 		$scope.modalAuto.show();
 	};
 
-	/* Ferme le modal */
 	$scope.closeAuto = function() {
 		$scope.modalAuto.hide();
 	};
 
-
-	/* Ouvre le menu */
-	$scope.showMenu = function () {
-		$ionicSideMenuDelegate.toggleLeft();
-	};
-
-	/* Fonctions login */
+	/* Functions for login */
 
 	$scope.loginData = {};
 	$scope.IPMODEL = /^([0-9]{1,3}\.){3}[0-9]{1,3}$/;
@@ -128,34 +139,33 @@ app.controller('SideMenuCtrl', function($scope, $cookieStore, $ionicModal, $ioni
 	$scope.loginData.username = $cookieStore.get('username');
 	$scope.loginData.password = $cookieStore.get('password');
 
-
-	/* Fonctions Auto Login */
+	/* Functions for autologin */
 
 	$scope.hideAuto = false;
 
-	$scope.scanAuto= function (){
-	        $scope.hideAuto = false;
-	        ZeroConf.list("_http._tcp.local.",5000,function(users){
-	        $scope.users=users.service;
-	    },function(users){
-	        alert("not found");
-	     
-	    }) 
-	    };
+	$scope.scanAuto = function() {
+		$scope.hideAuto = false;
+		ZeroConf.list("_http._tcp.local.", 5000, function(users) {
+			$scope.users = users.service;
+		}, function(users) {
+			alert("No Media Center discovered");
+		});
+	};
 
-	$scope.loadingScanAuto = function(){
+	$scope.loadingScanAuto = function() {
 		$ionicLoading.show({
-      			duration: 5000
-    		 })
+			duration: 5000
+		});
 	};
 
-	$scope.hideChoices = function(user){
+	$scope.hideChoices = function(user) {
 		$scope.hideAuto = !$scope.hideAuto;
-		$scope.loginData.ip=user.addresses[0];
-		$scope.loginData.port=user.port;
-		$scope.loginData.username2=user.name;
-		
+		$scope.loginData.ip = user.addresses[0];
+		$scope.loginData.port = user.port;
+		$scope.loginData.username2 = user.name;
 	};
 
-	
-});
+	$scope.showChoices = function(user){
+		$scope.hideAuto = !$scope.hideAuto;
+	};
+}]);
