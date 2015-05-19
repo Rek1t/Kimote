@@ -1,4 +1,11 @@
-#Kimote
+#Kimote [![Build Status](https://travis-ci.org/eftov/Kimote.svg?branch=master)](https://travis-ci.org/eftov/Kimote) ![Platforms](https://img.shields.io/badge/platform-ios%20%7C%20android-lightgrey.svg) ![License](https://img.shields.io/badge/license-LGPL%203-blue.svg)
+
+**Now featured in the Kodi wiki :** http://kodi.wiki/view/Kimote **and in the Ionic Showcase (Newest):** http://showcase.ionicframework.com/
+
+### Release for Android : https://github.com/eftov/Kimote/releases
+### For both iOS and Android, Kimote is available to test on the Ionic View app with App ID 0E5A555F
+
+---
 
 Kimote is a multi-platform remote application for [Kodi][], developed by 8 telecommunications students from ENSEIRB-MATMECA, a French Engineering School.
 
@@ -6,19 +13,29 @@ It is available for all platforms supported by the [Apache Cordova][] framework 
 
 On top of Cordova, it is built with [AngularJS][] and the [Ionic][] framework.
 
+[![Kimote logo](http://46.101.162.21/index.php/apps/files_sharing/ajax/publicpreview.php?x=3360&y=1782&a=true&file=kimote_logo.png&t=4Q15tQGV50KuSch&scalingup=0)](Kimote)
+
 ##Installation
 
-First, you need to get Cordova and Ionic, with npm : `npm install -g cordova` or download it from the website. 
+First, you need to get Cordova and Ionic, with npm : `npm install -g cordova ionic` or download it from the website.
 
-Same thing for Ionic : `npm install -g cordova ionic`
+Clone Kimote with `git clone https://github.com/eftov/Kimote.git`.
 
-Create a new project with :
+####Auto install : 
 
-	ionic start Kimote blank
+Run the install.sh script :
+	
+	./install.sh
+	
+####Manual install :
+	
+Run the following :
+
 	cd Kimote
-	rm -r www
-
-Get Kimote with `git clone https://github.com/eftov/Kimote.git` and move the www and resources folders to the app folder.
+	ionic start Kimote blank
+	rm -r Kimote/www
+	mv Kimote/* .
+	rm -r Kimote
 
 Add the platforms you need, for example iOS and Android :
 
@@ -28,6 +45,10 @@ Add the platforms you need, for example iOS and Android :
 and other supported platforms if you want.
 
 Build it with `ionic build` or just run it on your device  with `ionic run android` and/or `ionic run ios`.
+
+#####Support for ZeroConf on Android
+
+You need to add the ZeroConf plugin to the app directory : `cordova plugins add https://github.com/vstirbu/ZeroConf` to detect Kodi Media Centers automatically.
 
 ##Get Kodi/OpenELEC
 
@@ -40,6 +61,10 @@ Kimote is only compatible with Kodi v15 and +. You can download nightly versions
 If you want Kodi on your RaspberryPi, [OpenELEC][] is the way to go. Clone it from here : <https://github.com/OpenELEC/OpenELEC.tv/tree/openelec-next> and build it yourself.
 
 Or you can just download our compiled version (11 April 2015) available here : https://www.dropbox.com/s/2n7k1jonscizfl6/OpenELEC-RPi.arm-devel-20150411091720-r20584-g254b69d.img?dl=0
+
+##Licensing 
+
+Kimote is licensed under the GNU LGPL, Version 3.0. See LICENSE for full license text.
 
 ##Contacts
 
