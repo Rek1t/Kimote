@@ -4,6 +4,13 @@ document.addEventListener('deviceready', function() {
 			navigator.notification.alert(message,null,"Kimote",'OK');
 		};
 	}
+
+	window.addEventListener("volumebuttonslistener", onVolumeButtonsListener, false);
+
+	function onVolumeButtonsListener(info){
+		console.log("Button pressed: " + info.signal);
+	}
+
 }, false);
 
 var app = angular.module('app', [
@@ -17,7 +24,7 @@ var app = angular.module('app', [
 	'com.2fdevs.videogular.plugins.buffering',
 	'com.2fdevs.videogular.plugins.poster',
 	'com.2fdevs.videogular.plugins.dash'
-]);
+	]);
 
 app.run(function($ionicPlatform) {
 	$ionicPlatform.ready(function() {
@@ -83,7 +90,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
 	//tab tvshows
 	.state('tabs.tvshows', {
-	url: "/tvshows",
+		url: "/tvshows",
 		views: {
 			'tvshows-tab': {
 				templateUrl: "views/tvshows/tvshows.html",
