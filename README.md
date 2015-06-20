@@ -1,9 +1,8 @@
 #Kimote [![Build Status](https://travis-ci.org/eftov/Kimote.svg?branch=master)](https://travis-ci.org/eftov/Kimote) ![Platforms](https://img.shields.io/badge/platform-ios%20%7C%20android-lightgrey.svg) ![License](https://img.shields.io/badge/license-LGPL%203-blue.svg)
 
-**Now featured in the Kodi wiki :** http://kodi.wiki/view/Kimote **and in the Ionic Showcase (Newest):** http://showcase.ionicframework.com/
+Featured in the [Kodi Wiki](http://kodi.wiki/view/Kimote) and in the [Ionic Showcase (Archive)](http://showcase.ionicframework.com).
 
-### Release for Android : https://github.com/eftov/Kimote/releases
-### For both iOS and Android, Kimote is available to test on the Ionic View app with App ID 0E5A555F
+#### For both iOS and Android, Kimote is available to test on the Ionic View app with App ID 0E5A555F
 
 ---
 
@@ -13,22 +12,20 @@ It is available for all platforms supported by the [Apache Cordova][] framework 
 
 On top of Cordova, it is built with [AngularJS][] and the [Ionic][] framework.
 
-[![Kimote logo](http://46.101.162.21/index.php/apps/files_sharing/ajax/publicpreview.php?x=3360&y=1782&a=true&file=kimote_logo.png&t=4Q15tQGV50KuSch&scalingup=0)](Kimote)
-
 ##Installation
 
 First, you need to get Cordova and Ionic, with npm : `npm install -g cordova ionic` or download it from the website.
 
 Clone Kimote with `git clone https://github.com/eftov/Kimote.git`.
 
-####Auto install : 
+####Auto install :
 
 Run the install.sh script :
-	
+
 	./install.sh
-	
+
 ####Manual install :
-	
+
 Run the following :
 
 	cd Kimote
@@ -41,7 +38,7 @@ Add the platforms you need, for example iOS and Android :
 
 	ionic platform add ios
 	ionic platform add android
-	
+
 and other supported platforms if you want.
 
 Build it with `ionic build` or just run it on your device  with `ionic run android` and/or `ionic run ios`.
@@ -62,7 +59,7 @@ If you want Kodi on your RaspberryPi, [OpenELEC][] is the way to go. Clone it fr
 
 Or you can just download our compiled version (11 April 2015) available here : https://www.dropbox.com/s/2n7k1jonscizfl6/OpenELEC-RPi.arm-devel-20150411091720-r20584-g254b69d.img?dl=0
 
-##Licensing 
+##Licensing
 
 Kimote is licensed under the GNU LGPL, Version 3.0. See LICENSE for full license text.
 
