@@ -1,4 +1,4 @@
-#Kimote [![Build Status](https://travis-ci.org/eftov/Kimote.svg?branch=master)](https://travis-ci.org/eftov/Kimote) ![Platforms](https://img.shields.io/badge/platform-ios%20%7C%20android-lightgrey.svg) ![License](https://img.shields.io/badge/license-LGPL%203-blue.svg)
+#Kimote [![Build Status](https://travis-ci.org/eftov/Kimote.svg?branch=master)](https://travis-ci.org/eftov/Kimote) ![Platforms](https://img.shields.io/badge/platform-ios%20%7C%20android-lightgrey.svg) [![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
 
 Featured in the [Kodi Wiki](http://kodi.wiki/view/Kimote) and in the [Ionic Showcase (Archive)](http://showcase.ionicframework.com).
 
